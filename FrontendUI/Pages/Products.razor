@@ -1,0 +1,39 @@
+@page "/products"
+@using ProductCatalogService.Models
+
+<h3>Products</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Stock</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Products)
+        {
+            <tr>
+                <td>@product.Name</td>
+                <td>@product.Description</td>
+                <td>@product.Price</td>
+                <td>@product.StockQuantity</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code {
+    private List<Product> Products = new List<Product>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Simulate fetching data
+        Products = new List<Product>
+        {
+            new Product { Name = "Sample Product", Description = "Description", Price = 10.99m, StockQuantity = 100 }
+        };
+    }
+}

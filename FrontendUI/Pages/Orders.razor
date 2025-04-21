@@ -1,0 +1,41 @@
+@page "/orders"
+@using OrderService.Models
+
+<h3>Orders</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Order ID</th>
+            <th>User ID</th>
+            <th>Order Date</th>
+            <th>Total Amount</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Orders)
+        {
+            <tr>
+                <td>@order.OrderId</td>
+                <td>@order.UserId</td>
+                <td>@order.OrderDate</td>
+                <td>@order.TotalAmount</td>
+                <td>@order.Status</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code {
+    private List<Order> Orders = new List<Order>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Simulate fetching data
+        Orders = new List<Order>
+        {
+            new Order { OrderId = 1, UserId = 123, OrderDate = DateTime.Now, TotalAmount = 99.99m, Status = "Pending" }
+        };
+    }
+}
