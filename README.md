@@ -1,4 +1,4 @@
-# ECommerce Platform
+# E-Commerce Platform
 
 ## Project Overview
 The ECommerce Platform is a microservices-based application designed to handle various aspects of an e-commerce system. It includes services for product catalog management, inventory tracking, order processing, payment handling, notifications, analytics, and a frontend user interface.
